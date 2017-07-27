@@ -1,0 +1,14 @@
+added smile data images:
+train - training data
+test - test progress while running
+validate - check how final result is
+
+changed mnist_loader.py to load smile images
+
+changed network.py to work with smile images. Final network has size of [31266, 120, 1]
+using:
+eta = 0.25
+epochs = 300
+mini_batch_size = 10
+
+Final result - test data 100% validation data 91%
