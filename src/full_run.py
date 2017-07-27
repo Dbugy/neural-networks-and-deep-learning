@@ -17,3 +17,5 @@ net.SGD(training_data, epochs, mini_batch_size, eta, test_data=test_data)
 #validation
 print "Validation: " + str(net.evaluate(validation_data)) + "/" + str(len(validation_data))
 print "eta: " + str(eta) + " epochs " + str(epochs) + " mini batch size: " + str(mini_batch_size)+ " layers: " + str(net_size)
+
+#asdasdasd
