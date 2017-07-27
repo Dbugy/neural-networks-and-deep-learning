@@ -39,7 +39,7 @@ def load_data():
     That's done in the wrapper function ``load_data_wrapper()``, see
     below.
     """
-    f = gzip.open('../data/mnist.pkl.gz', 'rb')
+    f = open('../data/smile_detection/smile.pkl', 'rb')
     training_data, validation_data, test_data = cPickle.load(f)
     f.close()
     return (training_data, validation_data, test_data)
@@ -66,20 +66,32 @@ def load_data_wrapper():
     turn out to be the most convenient for use in our neural network
     code."""
     tr_d, va_d, te_d = load_data()
-    training_inputs = [np.reshape(x, (784, 1)) for x in tr_d[0]]
+    # print "Asdasd"
+    # for x in tr_d[0]:
+    #     print x.shape
+    # print "yrtyy"
+    training_inputs = [np.reshape(x, (31266, 1)) for x in tr_d[0]]
     training_results = [vectorized_result(y) for y in tr_d[1]]
     training_data = zip(training_inputs, training_results)
-    validation_inputs = [np.reshape(x, (784, 1)) for x in va_d[0]]
+    validation_inputs = [np.reshape(x, (31266, 1)) for x in va_d[0]]
     validation_data = zip(validation_inputs, va_d[1])
-    test_inputs = [np.reshape(x, (784, 1)) for x in te_d[0]]
+    test_inputs = [np.reshape(x, (31266, 1)) for x in te_d[0]]
     test_data = zip(test_inputs, te_d[1])
     return (training_data, validation_data, test_data)
 
-def vectorized_result(j):
+def vectorized_result(y):
     """Return a 10-dimensional unit vector with a 1.0 in the jth
     position and zeroes elsewhere.  This is used to convert a digit
     (0...9) into a corresponding desired output from the neural
     network."""
-    e = np.zeros((10, 1))
-    e[j] = 1.0
+    e = np.zeros((1, 1))
+    e[0] = y
     return e
+
+# tr_d, va_d, te_d = load_data_wrapper()
+#
+# print tr_d
+# print "-------------------------------"
+# print va_d
+# print "-------------------------------"
+# print te_d
