@@ -11,4 +11,6 @@ eta = 0.25
 epochs = 300
 mini_batch_size = 10
 
+added full_run.py that creates the network, sends it to train, and validates it. This is to save time in the future.
+
 Final result - test data 100% validation data 91%
